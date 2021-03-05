@@ -8,7 +8,7 @@ Installation
 
 install :
 
-``` git clone https://github.com/TH3HILL/BLACKBOTSS && cd BLACKBOTSS && chmod +x install.sh && ./install.sh ```
+``` git clone https://github.com/Memoz24/BLACKBOTSS && cd BLACKBOTSS && chmod +x install.sh && ./install.sh ```
 
 ______________________________________________________________________________________________________________________
 
