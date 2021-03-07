@@ -9398,6 +9398,10 @@ if msg.sender_user_id_ and Muted_Groups(msg.chat_id_,msg.sender_user_id_) then
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
 return false  
 end
+if msg.sender_user_id_ and Muted_All_Groups(msg.chat_id_,msg.sender_user_id_) then 
+DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
+return false  
+end
 --------------------------------------------------------------------------------------------------------------
 if tonumber(msg.sender_user_id_) ~= tonumber(bot_id) then  
 if msg.sender_user_id_ and Ban_Groups(msg.chat_id_,msg.sender_user_id_) then 
