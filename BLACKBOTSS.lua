@@ -2557,7 +2557,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "⧉️↫لا يوجد مطراء"
+t = "⧉️↫لا يوجد ملوك"
 end
 send(msg.chat_id_, msg.id_, t)
 end
