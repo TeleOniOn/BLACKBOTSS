@@ -200,17 +200,8 @@ var = false
 end
 return var
 end
-
 function Muted_Groups(Chat_id,User_id) 
 if database:sismember(bot_id.."BLACKBOTSS:Muted:User"..Chat_id,User_id) then
-Var = true
-else
-Var = false
-end
-return Var
-end
-function Muted_All_Groups(Chat_id,User_id) 
-if database:sismember(bot_id.."BLACKBOTSS:GMuted:User"..Chat_id,User_id) then
 Var = true
 else
 Var = false
@@ -2688,68 +2679,6 @@ end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_BLACKBOTSS, nil)
 return false
 end
---     Source ALOMDA     --
---         ALOMDA        --
----------------------------------------------------
-if text ==('كتم عام') and tonumber(msg.reply_to_message_id_) ~= 0 and DevBLACKBOTSS(msg) then
-function Function_BLACKBOTSS(extra, result, success)
-if result.sender_user_id_ == tonumber(Id_Sudo) then
-send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { كتم عام .} مطور البوت الاساسي \n")
-return false 
-end
-if result.sender_user_id_ == tonumber(1632008076) then
-send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { كتم عام .} مبرمج السورس \n")
-return false 
-end
-if result.sender_user_id_ == tonumber(1613095155) then
-send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { كتم عام .} مبرمج السورس \n")
-return false 
-end
-if tonumber(result.sender_user_id_) == tonumber(bot_id) then  
-send(msg.chat_id_, msg.id_, "⧉️↫لا تسطيع كتم البوت عام")
-return false 
-end
-database:sadd(bot_id.."BLACKBOTSS:GMuted:User", result.sender_user_id_)
-Kick_Group(result.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⧉️↫تم كتمه عام من المجموعات")  
-end 
-if tonumber(tonumber(msg.reply_to_message_id_)) == 0 then
-else
-getMessage(msg.chat_id_, tonumber(msg.reply_to_message_id_),MuteAllReply)
-end end
-if text and text:match('^كتم عام @(.*)') then
-local username = text:match('^كتم عام @(.*)')
-function MuteAllUser(extra,result,success)
-function Function_BLACKBOTSS(extra, result, success)
-if result.sender_user_id_ == tonumber(Id_Sudo) then
-send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { كتم عام .} مطور البوت الاساسي \n")
-return false 
-end
-if result.id_ then
-database:sadd(bot_id.."BLACKBOTSS:GMuted:User", result.sender_user_id_)
-Kick_Group(result.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⧉️↫تم كتمه عام من المجموعات")  
-else 
-send(msg.chat_id_, msg.id_, "⧉️↫المعرف خطا \n")
-end end 
-resolve_username(username,MuteAllUser)
-end
-if text and text:match('^كتم عام (%d+)') then
-local user = text:match('كتم عام (%d+)')
-if LeaderId(user) == true then
-send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { كتم عام .} مطور البوت الاساسي \n")
-return false 
-end
-database:sadd(bot_id.."BLACKBOTSS:GMuted:User", result.sender_user_id_)
-Kick_Group(result.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⧉️↫تم كتمه عام من المجموعات")  
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_BLACKBOTSS, nil)
-return false
-end
---     Source ALOMDA     --
---         ALOMDA        --
----------------------------------------------------
 if text == "تغيير المطور الاساسي" and msg.reply_to_message_id_ == 0 and VIP_DeV(msg) then 
 send(msg.chat_id_, msg.id_,'ارسل ايدي المطور الجديد')
 database:set(bot_id.."BLACKBOTSS:Ed:Dev"..msg.sender_user_id_,"Go")
@@ -4205,6 +4134,71 @@ Reply_Status(msg,userid,"reply","⧉️↫تم كتمه من هنا")
 end
 return false
 end
+if text and text:match("^كتم عام @(.*)$") and DevBLACKBOTSS(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⧉️↫عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⧉️↫قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local username = text:match("^كتم عام @(.*)$")
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,"⧉️↫البوت ليس ادمن يرجى ترقيتي !") 
+return false  
+end
+function Function_BLACKBOTSS(extra, result, success)
+if result.id_ then
+if result.id_ == tonumber(1632008076) then
+send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم عام،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if Rank_Checking(result.id_, msg.chat_id_) == true then
+send(msg.chat_id_, msg.id_, "\n⧉️↫عذرا لا تستطيع طرد او حظر او كتم عام او تقييد ( "..Get_Rank(result.id_,msg.chat_id_).." )")
+return false 
+end     
+if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
+send(msg.chat_id_,msg.id_,"⧉️↫عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+return false 
+end      
+database:sadd(bot_id.."BLACKBOTSS:Muted:User"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","⧉️↫تم كتم عام من هنا")  
+else
+send(msg.chat_id_, msg.id_, "⧉️↫لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_BLACKBOTSS, nil)
+return false
+end
+if text and text:match("^كتم عام (%d+)$") and DevBLACKBOTSS(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⧉️↫عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⧉️↫قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local userid = text:match("^كتم عام (%d+)$")
+if userid == tonumber(1632008076) then
+send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم عام،طرد،تقيد،الخ ..} مبرمج السورس \n")
+return false 
+end
+if Rank_Checking(userid, msg.chat_id_) == true then
+send(msg.chat_id_, msg.id_, "\n⧉️↫عذرا لا تستطيع طرد او حظر او كتم عام او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
+else
+if msg.can_be_deleted_ == false then 
+send(msg.chat_id_, msg.id_,"⧉️↫البوت ليس ادمن يرجى ترقيتي !") 
+return false  
+end
+database:sadd(bot_id.."BLACKBOTSS:Muted:User"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","⧉️↫تم كتم عام من هنا")  
+end
+return false
+end
 if text == ("الغاء كتم") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -4249,6 +4243,52 @@ end
 local userid = text:match("^الغاء كتم (%d+)$") 
 database:srem(bot_id.."BLACKBOTSS:Muted:User"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⧉️↫تم الغاء كتمه من هنا")  
+return false
+end
+if text == ("الغاء كتم العام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevBLACKBOTSS(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⧉️↫عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⧉️↫قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+function Function_BLACKBOTSS(extra, result, success)
+database:srem(bot_id.."BLACKBOTSS:Muted:User"..msg.chat_id_, result.sender_user_id_)
+Reply_Status(msg,result.sender_user_id_,"reply","⧉️↫تم الغاء كتم العام من هنا")  
+end
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_BLACKBOTSS, nil)
+return false
+end
+if text and text:match("^الغاء كتم العام @(.*)$") and DevBLACKBOTSS(msg) then
+local username = text:match("^الغاء كتم العام @(.*)$")
+function Function_BLACKBOTSS(extra, result, success)
+if result.id_ then
+database:srem(bot_id.."BLACKBOTSS:Muted:User"..msg.chat_id_, result.id_)
+Reply_Status(msg,result.id_,"reply","⧉️↫تم الغاء كتم العام من هنا")  
+else
+send(msg.chat_id_, msg.id_,"⧉️↫لا يوجد حساب بهاذا المعرف")
+end
+end
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_BLACKBOTSS, nil)
+return false
+end
+
+if text and text:match("^الغاء كتم العام (%d+)$") and DevBLACKBOTSS(msg) then  
+if AddChannel(msg.sender_user_id_) == false then
+local textchuser = database:get(bot_id..'text:ch:user')
+if textchuser then
+send(msg.chat_id_, msg.id_,'['..textchuser..']')
+else
+send(msg.chat_id_, msg.id_,'⧉️↫عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⧉️↫قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
+end
+return false
+end
+local userid = text:match("^الغاء كتم العام (%d+)$") 
+database:srem(bot_id.."BLACKBOTSS:Muted:User"..msg.chat_id_, userid)
+Reply_Status(msg,userid,"reply","⧉️↫تم الغاء كتم العام من هنا")  
 return false
 end
 if text == 'قفل الفارسيه' and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
@@ -9395,10 +9435,6 @@ print("OLD MESSAGE")
 return false
 end
 if msg.sender_user_id_ and Muted_Groups(msg.chat_id_,msg.sender_user_id_) then 
-DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
-return false  
-end
-if msg.sender_user_id_ and Muted_All_Groups(msg.chat_id_,msg.sender_user_id_) then 
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})  
 return false  
 end
