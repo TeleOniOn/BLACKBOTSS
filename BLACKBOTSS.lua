@@ -4765,13 +4765,14 @@ database:sadd(bot_id.."BLACKBOTSS:allM"..msg.chat_id_, msg.id_)
 end
 if text == ("امسح") and cleaner(msg) then  
 local list = database:smembers(bot_id.."BLACKBOTSS:allM"..msg.chat_id_)
-database:set(bot_id.."BLACKBOTSS:Lock:Document"..msg.chat_id_,"del") 
+database:smembers(bot_id.."BLACKBOTSS:Lock:Document"..msg.chat_id_,"del") 
 for k,v in pairs(list) do
 local Message = v
 if Message then
 t = "⌔︙تم مسح "..k.." من الوسائط الموجوده"
 DeleteMessage(msg.chat_id_,{[0]=Message})
 database:del(bot_id.."BLACKBOTSS:allM"..msg.chat_id_)
+database:del(bot_id.."BLACKBOTSS:Lock:Document"..msg.chat_id_,"del")
 end
 end
 if #list == 0 then
