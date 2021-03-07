@@ -2586,7 +2586,7 @@ t = "⧉️↫لا يوجد ادمنيه"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("الوزراء") and Addictive(msg) then
+if text == ("الوزرااااء") and Addictive(msg) then
 local list = database:smembers(bot_id.."BLACKBOTSS:Special:User"..msg.chat_id_)
 t = "\n⧉️↫قائمة وزراء المجموعه \n — — — — — — — — — \n"
 for k,v in pairs(list) do
