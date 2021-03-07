@@ -3220,65 +3220,6 @@ Reply_Status(msg,userid,"reply","⧉️↫تم ترقيته ملك المجمو�
 return false
 end  
 
-if text == ("رفع ملكه") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⧉️↫عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⧉️↫قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function Function_BLACKBOTSS(extra, result, success)
-database:sadd(bot_id.."BLACKBOTSS:Manager"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⧉️↫تم ترقيته ملكه المجموعه")  
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_BLACKBOTSS, nil)
-return false
-end  
-if text and text:match("^رفع ملكه @(.*)$") and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⧉️↫عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⧉️↫قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local username = text:match("^رفع ملكه @(.*)$") 
-function Function_BLACKBOTSS(extra, result, success)
-if result.id_ then
-if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"⧉️↫عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
-return false 
-end      
-database:sadd(bot_id.."BLACKBOTSS:Manager"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⧉️↫تم ترقيته ملكه المجموعه")  
-else
-send(msg.chat_id_, msg.id_,"⧉️↫لا يوجد حساب بهاذا المعرف")
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_BLACKBOTSS, nil)
-return false
-end 
-
-if text and text:match("^رفع ملكه (%d+)$") and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⧉️↫عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⧉️↫قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local userid = text:match("^رفع ملكه (%d+)$") 
-database:sadd(bot_id.."BLACKBOTSS:Manager"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⧉️↫تم ترقيته ملكه المجموعه")  
-return false
-end
 if text == ("تنزيل ملك") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
@@ -3331,60 +3272,6 @@ end
 local userid = text:match("^تنزيل ملك (%d+)$") 
 database:srem(bot_id.."BLACKBOTSS:Manager"..msg.chat_id_, userid)
 Reply_Status(msg,userid,"reply","⧉️↫تم تنزيله من الملوك")  
-return false
-end
-if text == ("تنزيل ملكه") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⧉️↫عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⧉️↫قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-function Function_BLACKBOTSS(extra, result, success)
-database:srem(bot_id.."BLACKBOTSS:Manager"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","⧉️↫تم تنزيلها من الملوك")  
-end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_BLACKBOTSS, nil)
-return false
-end  
-if text and text:match("^تنزيل ملكه @(.*)$") and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⧉️↫عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⧉️↫قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local username = text:match("^تنزيل ملكه @(.*)$")
-function Function_BLACKBOTSS(extra, result, success)
-if result.id_ then
-database:srem(bot_id.."BLACKBOTSS:Manager"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","⧉️↫تم تنزيلها من الملوك")  
-else
-send(msg.chat_id_, msg.id_,"⧉️↫لا يوجد حساب بهاذا المعرف")
-end
-end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_BLACKBOTSS, nil)
-return false
-end  
-if text and text:match("^تنزيل ملكه (%d+)$") and Constructor(msg) then  
-if AddChannel(msg.sender_user_id_) == false then
-local textchuser = database:get(bot_id..'text:ch:user')
-if textchuser then
-send(msg.chat_id_, msg.id_,'['..textchuser..']')
-else
-send(msg.chat_id_, msg.id_,'⧉️↫عـليك الاشـتࢪاك في قنـاة البـوت اولآ . \n ⧉️↫قنـاة البـوت ←  ['..database:get(bot_id..'add:ch:username')..']')
-end
-return false
-end
-local userid = text:match("^تنزيل ملكه (%d+)$") 
-database:srem(bot_id.."BLACKBOTSS:Manager"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","⧉️↫تم تنزيلها من الملوك")  
 return false
 end
 
@@ -8330,8 +8217,9 @@ send(msg.chat_id_,msg.id_,'⧉️↫شترك في قناة السورس اولآ
 return false 
 end
 Text = [[
-*- AlomdA Team .*
- — — — — — — — — — 
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
+⧉️↫ 𝐓𝐄𝐀𝐌 Aℓ𝐎𝐌𝐃𝐀
+┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
      
 [⧉️↫ AlomdA 𝖲𝗈𝗎𝗋𝖼𝖾  .](http://t.me/src_web)
      
@@ -8439,8 +8327,8 @@ end
 Text = [[
 ⧉️↫اوامر الادمنيه
  — — — — — — — — —  
- ⧉️↫تفعيل/تعطيل الترحيب
- ⧉️↫اضف /مسح صلاحيه
+⧉️↫تفعيل/تعطيل الترحيب
+⧉️↫اضف /مسح صلاحيه
 ⧉️↫وضع تكرار + العدد
 ⧉️↫رفع/تنزيل وزير
 ⧉️↫عدد الكروب
@@ -8452,7 +8340,7 @@ Text = [[
 ⧉️↫منع
 ⧉️↫تقيد
  — — — — — — — — —
- ⧉️↫المكتومين
+⧉️↫المكتومين
 ⧉️↫المحظورين
 ⧉️↫الوزراء
 ⧉️↫الصلاحيات
