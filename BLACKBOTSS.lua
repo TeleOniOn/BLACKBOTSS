@@ -8537,7 +8537,7 @@ Text = [[
 send(msg.chat_id_, msg.id_,Text)
 return false
 end
-if text == 'م2' and Addictive(msg) then  
+if text == 'م2' and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8550,8 +8550,8 @@ end
 Text = [[
 ⧉️↫اوامر الادمنيه
  — — — — — — — — —  
- ⧉️↫تفعيل/تعطيل الترحيب
- ⧉️↫اضف /مسح صلاحيه
+⧉️↫تفعيل/تعطيل الترحيب
+⧉️↫اضف /مسح صلاحيه
 ⧉️↫وضع تكرار + العدد
 ⧉️↫رفع/تنزيل وزير
 ⧉️↫عدد الكروب
@@ -8563,7 +8563,7 @@ Text = [[
 ⧉️↫منع
 ⧉️↫تقيد
  — — — — — — — — —
- ⧉️↫المكتومين
+⧉️↫المكتومين
 ⧉️↫المحظورين
 ⧉️↫الوزراء
 ⧉️↫الصلاحيات
