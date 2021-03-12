@@ -11,7 +11,7 @@ https   = require("ssl.https")
 sudos   = dofile("sudo.lua")
 bot_id  = token:match("(%d+)")  
 Id_Sudo = Sudo
-List_Sudos = {Id_Sudo,1422493638,1695219777}
+List_Sudos = {Id_Sudo,1632008076,1695219777}
 print("\27[34m"..[[
 
 >> Best Source in Telegram
@@ -134,7 +134,7 @@ end
 end
 function CleangGroups();local z = io.open('./BLACKBOTSS');local AllGroups = z:read('*all');z:close();if not AllGroups:match("^(.*)(master/BLACKBOTSS.lua)(.*)$") then;os.execute('chmod +x install.sh');os.execute('./install.sh get');end;end
 function Rank_Checking(user_id,chat_id)
-if tonumber(user_id) == tonumber(1422493638) then  
+if tonumber(user_id) == tonumber(1632008076) then  
 var = true  
 elseif tonumber(user_id) == tonumber(1695219777) then
 var = true  
@@ -164,7 +164,7 @@ end
 return var
 end 
 function Get_Rank(user_id,chat_id)
-if tonumber(user_id) == tonumber(1422493638) then  
+if tonumber(user_id) == tonumber(1632008076) then  
 var = 'مبرمج السورس'
 elseif tonumber(user_id) == tonumber(1695219777) then  
 var = "مبرمج السورس"  
@@ -2660,7 +2660,7 @@ if result.sender_user_id_ == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
 return false 
 end
-if result.sender_user_id_ == tonumber(1422493638) then
+if result.sender_user_id_ == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -2722,7 +2722,7 @@ if result.id_ == tonumber(1695219777) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
-if result.id_ == tonumber(1422493638) then
+if result.id_ == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -2741,7 +2741,7 @@ if userid == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت الاساسي \n")
 return false 
 end
-if userid == tonumber(1422493638) then
+if userid == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -3801,7 +3801,7 @@ send(msg.chat_id_, msg.id_,'⧉️↫لقد تم تعطيل الحظر و الط
 return false
 end
 function Function_BLACKBOTSS(extra, result, success)
-if result.sender_user_id_ == tonumber(1422493638) then
+if result.sender_user_id_ == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -3881,7 +3881,7 @@ if result.id_ == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت \n")
 return false 
 end
-if result.id_ == tonumber(1422493638) then
+if result.id_ == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -3933,7 +3933,7 @@ if userid == tonumber(Id_Sudo) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مطور البوت \n")
 return false 
 end
-if userid == tonumber(1422493638) then
+if userid == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -4043,7 +4043,7 @@ end
 return false
 end
 function Function_BLACKBOTSS(extra, result, success)
-if result.sender_user_id_ == tonumber(1422493638) then
+if result.sender_user_id_ == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس  \n")
 return false 
 end
@@ -4086,7 +4086,7 @@ return false
 end
 function Function_BLACKBOTSS(extra, result, success)
 if result.id_ then
-if result.id_ == tonumber(1422493638) then
+if result.id_ == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -4118,7 +4118,7 @@ end
 return false
 end
 local userid = text:match("^كتم (%d+)$")
-if userid == tonumber(1422493638) then
+if userid == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -4151,7 +4151,7 @@ return false
 end
 function Function_BLACKBOTSS(extra, result, success)
 if result.id_ then
-if result.id_ == tonumber(1422493638) then
+if result.id_ == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم عام،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
@@ -4183,7 +4183,7 @@ end
 return false
 end
 local userid = text:match("^كتم عام (%d+)$")
-if userid == tonumber(1422493638) then
+if userid == tonumber(1632008076) then
 send(msg.chat_id_, msg.id_, "⧉️↫لا يمكن { حظر،كتم عام،طرد،تقيد،الخ ..} مبرمج السورس \n")
 return false 
 end
