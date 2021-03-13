@@ -6125,7 +6125,7 @@ end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_BLACKBOTSS, nil)
 end
-if text == "تاك اعضاء العمده" and Addictive(msg) then
+if text == "تاك اعضاء العمده" and DevBLACKBOTSS(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
